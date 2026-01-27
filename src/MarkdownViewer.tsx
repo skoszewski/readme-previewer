@@ -9,7 +9,7 @@ const getApiUrl = () => {
   const protocol = window.location.protocol;
   const hostname = window.location.hostname;
   const port = 3000;
-  return `${protocol}//${hostname}:${port}/api/files`;
+  return `${protocol}//${hostname}:${port}`;
 };
 
 export default function MarkdownViewer({
@@ -29,7 +29,7 @@ export default function MarkdownViewer({
       try {
         // Ensure path starts with /
         const path = filePath.startsWith("/") ? filePath : `/${filePath}`;
-        const url = `${apiUrl}${path}`;
+        const url = `${apiUrl}/api/file?path=${encodeURIComponent(path)}`;
 
         const res = await fetch(url, { cache: "no-store" });
 

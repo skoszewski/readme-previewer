@@ -28,20 +28,26 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok", markdownRoot });
 });
 
-// REST API endpoint for markdown files
-// GET /api/files/... - captures any path after /api/files/
-app.get(/^\/api\/files\/(.*)$/, async (req, res) => {
+// API endpoint for markdown files using query parameter
+// GET /api/file?path=... - query parameter approach
+app.get("/api/file", async (req, res) => {
   try {
-    // Extract the path from the captured group
-    let filePath = req.params[0];
+    let filePath = req.query.path;
 
-    // Handle root path case - empty string means root directory
-    if (!filePath) {
+    // Default to root if no path provided
+    if (!filePath || filePath === "/" || filePath === "") {
       filePath = ".";
     }
 
-    // Normalize and resolve the requested path
+    // Remove leading slashes to prevent absolute path resolution
+    if (typeof filePath === "string") {
+      filePath = filePath.replace(/^\/+/, "");
+    }
+
+    // Normalize the requested path
     const normalizedPath = normalize(filePath);
+
+    // Resolve relative to markdown root
     const fullPath = resolve(markdownRoot, normalizedPath);
 
     // Security: Prevent directory traversal attacks
