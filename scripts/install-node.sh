@@ -12,7 +12,7 @@ for cmd in curl tar jq; do
     fi
 done
 
-VERSION=$1
+VERSION=${1:-24} # Default to version 24 if not specified
 
 # https://nodejs.org/dist/index.json lists all available versions, and is already sorted
 if [ -z "$VERSION" ]; then
