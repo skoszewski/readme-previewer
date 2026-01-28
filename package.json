@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "A tool to preview README files in various formats.",
   "scripts": {
-    "dev": "concurrently \"node src/server.js\" \"vite\"",
-    "dev:host": "concurrently \"node src/server.js --host\" \"vite --host\"",
-    "server": "node src/server.js",
-    "client": "vite",
-    "client:host": "vite --host"
+    "start": "concurrently \"node src/server.js\" \"vite\"",
+    "dev": "concurrently \"node src/server.js --host\" \"vite --host\""
   },
   "author": "Slawomir Koszewski",
   "license": "MIT",
