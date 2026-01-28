@@ -22,13 +22,13 @@ npm install
 To start the app, run:
 
 ```bash
-npm run dev
+npm start
 ```
 
 or run and expose on all network interfaces:
 
 ```bash
-npm run dev:host
+npm run host
 ```
 
 You can specify the documents root directory by setting the `MDPREVIEW_ROOT` environment variable. By default, it uses the current working directory. You can also set the maximum width of the markdown content by setting the `MDPREVIEW_WIDTH` environment variable (default is `900px`).

@@ -4,7 +4,7 @@
   "description": "A tool to preview README files in various formats.",
   "scripts": {
     "start": "concurrently \"node src/server.js\" \"vite\"",
-    "dev": "concurrently \"node src/server.js --host\" \"vite --host\""
+    "host": "concurrently \"node src/server.js --host\" \"vite --host\""
   },
   "author": "Slawomir Koszewski",
   "license": "MIT",
